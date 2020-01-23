@@ -21,7 +21,6 @@ function App() {
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
       >
-        <Controls />
         <ambientLight intensity={1} position={[0, 0, 0]} />
         {/* <pointLight intensity={0.5} position={[4, 8, 4]} />
         <pointLight intensity={0.5} position={[0, 0, 0]} /> */}
@@ -37,10 +36,11 @@ function App() {
 
         <fog attach="fog" args={["#66bd28", 50, 200]} />
         <Provider>
+          <Controls />
           <Obj position={[-3, 4, 1]} />
           <Obj position={[0, 4, 1]} />
           <Obj position={[3, 4, 1]} />
-          <Subject position={[0, 0, 1]} />
+          {/* <Subject position={[0, 0, 1]} /> */}
           <Skybox position={[0, 0, -1]} />
 
           <Plane position={[0, 0, 0]} />

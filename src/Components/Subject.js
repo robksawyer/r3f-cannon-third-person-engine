@@ -5,7 +5,7 @@ import { useCannon } from "../Utils/useCannon";
 import gold from "../Assets/gold.jpg";
 import useStore from "./store";
 
-export default function Thing({ position }) {
+export default function Subject({ position, camera }) {
   const count = useStore(state => state.nested.stuff.is.here);
   const up = useStore(state => state.up);
 
@@ -21,6 +21,7 @@ export default function Thing({ position }) {
       var keyCode = event.which;
       if (keyCode == 38) {
         body.position.y++;
+        camera.position.y++;
       } else if (keyCode == 40) {
         body.position.y--;
       } else if (keyCode == 37) {
