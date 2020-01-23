@@ -7,7 +7,9 @@ import Obj from "./Obj";
 import Skybox from "./Skybox";
 import Plane from "./Plane";
 import Ramp from "./Ramp";
+import Hud from "./Hud";
 import { Provider } from "../Utils/useCannon";
+import "../App.css";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           gl.shadowMap.type = THREE.PCFSoftShadowMap;
         }}
       >
+        <Controls />
         <ambientLight intensity={1} position={[0, 0, 0]} />
         {/* <pointLight intensity={0.5} position={[4, 8, 4]} />
         <pointLight intensity={0.5} position={[0, 0, 0]} /> */}
@@ -31,20 +34,22 @@ function App() {
           shadow-mapSize-width={2048}
           shadow-mapSize-height={2048}
         />
+
         <fog attach="fog" args={["#66bd28", 50, 200]} />
         <Provider>
-          <Obj position={[-3, 2, -3]} />
-          <Obj position={[0, 2, -3]} />
-          <Obj position={[3, 2, -3]} />
-          <Subject position={[0, 0, 0]} />
+          <Obj position={[-3, 4, 1]} />
+          <Obj position={[0, 4, 1]} />
+          <Obj position={[3, 4, 1]} />
+          <Subject position={[0, 0, 1]} />
           <Skybox position={[0, 0, -1]} />
-          <Controls />
-          <Plane position={[0, 0, -1]} />
-          <Suspense fallback={<Obj position={[1, 1, 1]} />}>
-            <Ramp position={[1, 1, 1]} />
+
+          <Plane position={[0, 0, 0]} />
+          <Suspense fallback={<Obj position={[1, 10, 1]} />}>
+            <Ramp position={[1, 10, 1]} />
           </Suspense>
         </Provider>
       </Canvas>
+      <Hud />
     </div>
   );
 }

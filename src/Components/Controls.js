@@ -1,11 +1,9 @@
 import React from "react";
 //import PropTypes from "prop-types";
 import { extend, useThree } from "react-three-fiber";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { TrackballControls } from "three/examples/jsm/controls/TrackballControls";
+import { OrbitControls } from "./OrbitControlsFork";
 
 extend({ OrbitControls });
-extend({ TrackballControls });
 
 function Controls(props) {
   const { camera, gl } = useThree();

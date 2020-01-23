@@ -3,8 +3,12 @@ import React, { useRef, useMemo } from "react";
 import * as THREE from "three";
 import { useCannon } from "../Utils/useCannon";
 import gold from "../Assets/gold.jpg";
+import useStore from "./store";
 
 export default function Thing({ position }) {
+  const count = useStore(state => state.nested.stuff.is.here);
+  const up = useStore(state => state.up);
+
   const geometryRef = useRef();
 
   const ref = useCannon({ mass: 1000 }, body => {
@@ -32,7 +36,7 @@ export default function Thing({ position }) {
   const goldTexture = useMemo(() => new THREE.TextureLoader().load(gold), []);
 
   return (
-    <mesh ref={ref} castShadow receiveShadow>
+    <mesh ref={ref} castShadow receiveShadow onClick={() => up()}>
       <boxGeometry ref={geometryRef} attach="geometry" args={[2, 2, 2]} />
       <meshStandardMaterial attach="material">
         <primitive attach="map" object={goldTexture} />

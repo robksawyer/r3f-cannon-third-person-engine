@@ -7,3 +7,10 @@
   background-attachment: fixed;
   background-position: center top;
 }
+
+.hud {
+  background: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
